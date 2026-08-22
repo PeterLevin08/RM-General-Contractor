@@ -283,12 +283,13 @@ h1 em,h2 em,h3 em{font-style:italic;color:var(--gold-500)}
   .brand{margin-right:.45rem}
   .nav__links{gap:.1rem}
 
-  /* keep headline, lead and badges clear of the floating estimate card;
-     lift the text column above the vertical centre */
-  .hero__inner{padding-right:430px;margin-top:-4.5rem}
+  /* Center the copy as a composition with the estimate card, rather than
+     pinning it to the far-left shell gutter. */
+  .hero__inner{max-width:680px;padding-right:100px;margin-inline:auto;margin-top:-4.5rem}
+  .hero__title{font-size:clamp(3rem,4.4vw,4.6rem)}
 }
 @media (min-width:1200px){
-  .hero__inner{padding-right:420px}
+  .hero__inner{max-width:900px;padding-right:180px}
 }
 .hero__eyebrow{margin-bottom:1.3rem;animation:fadeUp .9s var(--ease-out) both .1s}
 
@@ -339,9 +340,8 @@ h1 em,h2 em,h3 em{font-style:italic;color:var(--gold-500)}
 .hero__card--quiz{
   width:min(380px, calc(100vw - 2*var(--gut)));
   bottom:auto;top:50%;transform:translateY(-50%);
-  /* mirror the shell's left gutter so the form's right gap equals the title's left gap */
-  right:max(var(--gut), calc((100vw - var(--shell))/2 + var(--gut)));
-  animation:quizIn 1s var(--ease-out) both .8s;
+  right:var(--gut);
+  animation:none;
 }
 @keyframes quizIn{
   from{opacity:0;transform:translateY(calc(-50% + 22px))}
