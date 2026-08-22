@@ -22,7 +22,6 @@ collections:
             widget: object
             fields:
               - { label: Business name, name: name, widget: string }
-              - { label: Brand tagline, name: tagline, widget: string }
               - { label: Phone number shown on the website, name: phoneDisplay, widget: string }
               - { label: Phone number for call links, name: phoneTel, widget: string, hint: "Include country code, e.g. +16478658009" }
               - { label: Street address, name: streetAddress, widget: string }
