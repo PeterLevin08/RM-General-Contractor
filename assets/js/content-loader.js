@@ -181,11 +181,24 @@
     setText('contactLead', contact.lead);
   }
 
-  window.siteContentReady = fetch('content/site.json', { cache: 'no-store' })
-    .then(function (response) {
-      if (!response.ok) throw new Error('Unable to load website content.');
-      return response.json();
-    })
+  var contentSources = [
+    'https://raw.githubusercontent.com/PeterLevin08/RM-General-Contractor/main/content/site.json?refresh=' + Date.now(),
+    'content/site.json'
+  ];
+
+  function loadContent(sourceIndex) {
+    return fetch(contentSources[sourceIndex], { cache: 'no-store' })
+      .then(function (response) {
+        if (!response.ok) throw new Error('Unable to load website content.');
+        return response.json();
+      })
+      .catch(function (error) {
+        if (sourceIndex < contentSources.length - 1) return loadContent(sourceIndex + 1);
+        throw error;
+      });
+  }
+
+  window.siteContentReady = loadContent(0)
     .then(applyContent)
     .catch(function (error) {
       console.warn('Website content could not be loaded; using the built-in copy.', error);
