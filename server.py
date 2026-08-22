@@ -27,6 +27,14 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         self.send_header('Expires', '0')
         super().end_headers()
 
+    def do_GET(self):
+        if self.path == '/':
+            self.send_response(302)
+            self.send_header('Location', '/?version=hero-trust-4')
+            self.end_headers()
+            return
+        super().do_GET()
+
 socketserver.TCPServer.allow_reuse_address = True
 with socketserver.TCPServer(('0.0.0.0', PORT), Handler) as httpd:
     print(f'Serving on port {PORT}')
