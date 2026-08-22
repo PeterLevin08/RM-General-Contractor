@@ -78,14 +78,13 @@ be reviewed or reverted in GitHub.
 
 ## Publishing CMS edits
 
-Decap saves edits to GitHub, not directly into Replit's static deployment.
-For automatic public updates, connect the GitHub repository to a static host
-that redeploys on commits (for example, Cloudflare Pages or Netlify's free
-static hosting). The website remains the same static site; this only automates
-publishing after an editor saves.
+Decap saves edits to GitHub. The website reads the published content and
+uploaded gallery photos from the public repository, so copy and gallery edits
+can appear without using Shell or manually copying files into Replit.
 
-If the site remains on Replit Static Deployment, redeploy after CMS changes are
-committed to GitHub so the latest repository files are published.
+If you later change the website's HTML, CSS, or JavaScript, redeploy the Replit
+Static Deployment (or connect the repository to a static host that redeploys on
+commits, such as Cloudflare Pages or Netlify).
 
 ## Editing photos
 
