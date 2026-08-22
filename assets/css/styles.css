@@ -280,7 +280,7 @@ h1 em,h2 em,h3 em{font-style:italic;color:var(--gold-500)}
 .hero__inner{position:relative;width:100%;max-width:var(--shell)}
 @media (min-width:901px){
   .nav{gap:0}
-  .brand{margin-right:1.35rem}
+  .brand{margin-right:.45rem}
   .nav__links{gap:.1rem}
 
   /* keep headline, lead and badges clear of the floating estimate card;
@@ -310,15 +310,15 @@ h1 em,h2 em,h3 em{font-style:italic;color:var(--gold-500)}
   color:rgba(255,255,255,.88);margin-bottom:2rem;
   animation:fadeUp .9s var(--ease-out) both .48s;
 }
-.hero__badges{
-  display:flex;flex-wrap:wrap;gap:.65rem 1.6rem;
-  padding-top:1.6rem;border-top:1px solid rgba(255,255,255,.22);
-  max-width:640px;
-  animation:fadeUp .9s var(--ease-out) both .62s;
+.hero__trust{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem 1.25rem;
+  padding-top:1.35rem;border-top:1px solid rgba(255,255,255,.22);max-width:640px;
 }
-.badge{display:inline-flex;align-items:center;gap:.6rem;font-size:.94rem;color:rgba(255,255,255,.85)}
-.badge strong{color:#fff;font-weight:600}
-.badge__ico{width:20px;height:20px;flex:none;fill:none;stroke:var(--gold-300);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.hero__trust-item{display:flex;align-items:center;gap:.6rem;min-width:0;color:rgba(255,255,255,.88)}
+.hero__trust-item span{display:grid;gap:.12rem;min-width:0}
+.hero__trust-item strong{font-family:var(--font-head);font-size:.88rem;font-weight:600;line-height:1.2;color:#fff}
+.hero__trust-item small{font-size:.72rem;line-height:1.3;color:rgba(255,255,255,.7)}
+.hero__trust-icon{width:27px;height:27px;flex:none;fill:none;stroke:var(--gold-300);stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
 
@@ -785,7 +785,7 @@ h1 em,h2 em,h3 em{font-style:italic;color:var(--gold-500)}
   body{font-size:1rem}
   .hero{min-height:auto;padding-top:calc(68px + 3.5rem);padding-bottom:3.5rem}
   .hero__title{max-width:none}
-  .hero__badges{gap:.85rem;flex-direction:column;align-items:flex-start}
+  .hero__trust{grid-template-columns:1fr;gap:.7rem;padding-top:1.2rem}
 
   .gallery{grid-template-columns:1fr}
   .process__steps{grid-template-columns:1fr;gap:1.75rem}
@@ -815,7 +815,7 @@ h1 em,h2 em,h3 em{font-style:italic;color:var(--gold-500)}
   }
   .reveal{opacity:1;transform:none}
   .hero__title .line>span{transform:none}
-  .hero__eyebrow,.hero__lead,.hero__badges,.hero__card,.hero__scroll{opacity:1;transform:none}
+  .hero__eyebrow,.hero__lead,.hero__trust,.hero__card,.hero__scroll{opacity:1;transform:none}
   .hero__media img{transform:none}
   .btn:hover,.service:hover,.proj:hover,.quote:hover{transform:none}
 }
