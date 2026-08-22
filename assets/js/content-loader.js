@@ -12,6 +12,43 @@
     return document.getElementById(id);
   }
 
+  function upgradeLegacyTrustLayout() {
+    var legacyBadges = document.querySelector('.hero__badges');
+    if (legacyBadges && !document.querySelector('.hero__trust')) {
+      var trust = document.createElement('div');
+      trust.className = 'hero__trust hero__badges';
+      trust.setAttribute('aria-label', 'Why homeowners choose RM General Contractor');
+      trust.innerHTML =
+        '<div class="hero__trust-item badge">' +
+          '<svg class="hero__trust-icon badge__ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2 4.8 6v5.6c0 4.3 3 8.2 7.2 9.3 4.2-1.1 7.2-5 7.2-9.3V6L12 3.2Z"/><path d="m8.9 12.2 2.2 2.2 4-4.3"/></svg>' +
+          '<span><strong>Insurance</strong><small>$5M &amp; WSIB</small></span>' +
+        '</div>' +
+        '<div class="hero__trust-item badge">' +
+          '<svg class="hero__trust-icon badge__ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V8h7v12"/><path d="M11 20V4h9v16"/><path d="M6.5 11h2M6.5 14.5h2M14 7.5h3M14 11h3M14 14.5h3"/></svg>' +
+          '<span><strong>All trades licensed</strong><small>Plumbing / electrical / HVAC</small></span>' +
+        '</div>' +
+        '<div class="hero__trust-item badge">' +
+          '<svg class="hero__trust-icon badge__ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 6.5h15v11h-15z"/><path d="M8 10h8M8 13.5h5"/></svg>' +
+          '<span><strong>Fixed prices</strong><small>Clear quotes before work begins</small></span>' +
+        '</div>' +
+        '<div class="hero__trust-item badge">' +
+          '<svg class="hero__trust-icon badge__ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 4 2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.6-4.8 2.6.9-5.4-3.9-3.8 5.4-.8L12 4Z"/></svg>' +
+          '<span><strong>5.0 Google Reviews</strong><small>Trusted by homeowners</small></span>' +
+        '</div>';
+      legacyBadges.replaceWith(trust);
+    }
+
+    document.querySelectorAll('.trust').forEach(function (section) {
+      section.remove();
+    });
+
+    var scrollLink = document.querySelector('.hero__scroll');
+    if (scrollLink) {
+      scrollLink.href = '#services';
+      scrollLink.setAttribute('aria-label', 'Scroll to services');
+    }
+  }
+
   function setText(id, value) {
     var node = byId(id);
     if (node && value !== undefined) node.textContent = value;
@@ -151,6 +188,7 @@
   }
 
   function applyContent(content) {
+    upgradeLegacyTrustLayout();
     applyBusiness(content.business);
 
     var hero = content.hero || {};
