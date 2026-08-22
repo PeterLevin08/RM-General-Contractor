@@ -1,0 +1,37 @@
+# Replit configuration — static site
+# Dev preview: serves the folder locally inside the Repl.
+run = "python3 server.py"
+modules = ["python-base-3.13", "nodejs-24"]
+
+[deployment]
+# One-click Static Deployment: publishes this folder as-is.
+deploymentTarget = "static"
+publicDir = "/"
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Start application"
+
+[[workflows.workflow]]
+name = "Start application"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python3 server.py"
+waitForPort = 5000
+
+[workflows.workflow.metadata]
+outputType = "webview"
+
+[[ports]]
+localPort = 5000
+externalPort = 80
