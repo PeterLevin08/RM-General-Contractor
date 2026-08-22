@@ -30,7 +30,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         if self.path == '/':
             self.send_response(302)
-            self.send_header('Location', '/?version=hero-centered-1')
+            self.send_header('Location', '/?version=reference-trust-2')
             self.end_headers()
             return
         super().do_GET()
