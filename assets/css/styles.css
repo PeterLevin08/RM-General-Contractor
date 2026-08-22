@@ -312,14 +312,25 @@ h1 em,h2 em,h3 em{font-style:italic;color:var(--gold-500)}
   animation:fadeUp .9s var(--ease-out) both .48s;
 }
 .hero__trust{
-  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem 1.25rem;
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;
   padding-top:1.35rem;border-top:1px solid rgba(255,255,255,.22);max-width:640px;
 }
-.hero__trust-item{display:flex;align-items:center;gap:.6rem;min-width:0;color:rgba(255,255,255,.88)}
+.hero__trust-item{
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.16rem;
+  min-width:0;padding:.05rem .7rem;text-align:center;color:rgba(255,255,255,.88);position:relative;
+}
+.hero__trust-item+.hero__trust-item::before{
+  content:'';position:absolute;left:0;top:12%;bottom:12%;width:1px;background:rgba(255,255,255,.22);
+}
 .hero__trust-item span{display:grid;gap:.12rem;min-width:0}
-.hero__trust-item strong{font-family:var(--font-head);font-size:.88rem;font-weight:600;line-height:1.2;color:#fff}
-.hero__trust-item small{font-size:.72rem;line-height:1.3;color:rgba(255,255,255,.7)}
-.hero__trust-icon{width:27px;height:27px;flex:none;fill:none;stroke:var(--gold-300);stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round}
+.hero__trust-item strong{
+  font-family:var(--font-display);font-size:clamp(1rem,1.75vw,1.45rem);font-weight:600;
+  line-height:1.1;white-space:normal;color:#fff;
+}
+.hero__trust-item small{
+  font-size:clamp(.58rem,.72vw,.7rem);line-height:1.25;color:rgba(255,255,255,.68);
+}
+.hero__trust-icon{display:none}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
 
@@ -779,6 +790,8 @@ h1 em,h2 em,h3 em{font-style:italic;color:var(--gold-500)}
   .hero__card{position:static;width:auto;max-width:520px;margin:2.5rem var(--gut) 0;animation-delay:.75s}
   .hero__card--quiz{top:auto;transform:none;animation-name:fadeUp}
   .hero__scroll{display:none}
+  .hero__trust{grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem 0}
+  .hero__trust-item:nth-child(odd)::before{display:none}
 }
 
 @media (max-width:640px){
@@ -786,6 +799,7 @@ h1 em,h2 em,h3 em{font-style:italic;color:var(--gold-500)}
   .hero{min-height:auto;padding-top:calc(68px + 3.5rem);padding-bottom:3.5rem}
   .hero__title{max-width:none}
   .hero__trust{grid-template-columns:1fr;gap:.7rem;padding-top:1.2rem}
+  .hero__trust-item+.hero__trust-item::before{display:none}
 
   .gallery{grid-template-columns:1fr}
   .process__steps{grid-template-columns:1fr;gap:1.75rem}
