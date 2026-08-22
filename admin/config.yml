@@ -6,7 +6,7 @@ backend:
   auth_endpoint: /auth
 
 media_folder: assets/uploads
-public_folder: /assets/uploads
+public_folder: https://raw.githubusercontent.com/PeterLevin08/RM-General-Contractor/main/assets/uploads
 
 collections:
   - name: website
