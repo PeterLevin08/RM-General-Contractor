@@ -279,6 +279,10 @@ h1 em,h2 em,h3 em{font-style:italic;color:var(--gold-500)}
 
 .hero__inner{position:relative;width:100%;max-width:var(--shell)}
 @media (min-width:901px){
+  .nav{gap:0}
+  .brand{margin-right:1.35rem}
+  .nav__links{gap:.1rem}
+
   /* keep headline, lead and badges clear of the floating estimate card;
      lift the text column above the vertical centre */
   .hero__inner{padding-right:430px;margin-top:-4.5rem}
